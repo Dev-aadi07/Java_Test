@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\aadar\OneDrive\Documents\Java_Test\.metadata\.plugins\org.eclipse.jdt.core
+1508840873.index
+290409474.index
