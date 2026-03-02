@@ -1,0 +1,36 @@
+package com.Junit2;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Junit2Test {
+	Junit2 j2 = new Junit2();
+
+	@Test
+	void test() {
+		boolean actual = j2.isPalindrome("hello", "olleh");
+		boolean expected = true;
+		
+		assertEquals(expected, actual);
+		
+	}
+	
+	@Test
+	void oddTest() {
+		assertTrue(j2.isOdd(5));		
+	}
+	
+	@Test
+	void arrayTest() {
+		int actual[] = {1,2,3,4};
+		int expected[] = {1,2,3,4};
+		assertArrayEquals(actual, expected);
+		
+		
+	}
+	
+	
+	
+}

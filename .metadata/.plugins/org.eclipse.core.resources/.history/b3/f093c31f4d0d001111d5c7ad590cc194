@@ -1,0 +1,37 @@
+package interfaceTeaching;
+
+import java.util.function.Function;
+
+@FunctionalInterface
+interface Printer {
+	void print(String name);
+}
+
+interface Bi<T, U> {
+	int apply(T a, U b);
+}
+
+public class LambdaExpre {
+	
+	static int product (int a, int b) {
+			return a*b;
+	}
+
+	public static void main(String[] args) {
+		Printer p = (name) -> System.out.println("Hello "+name);
+		p.print("Adarsh");
+		
+		Function<Integer, Double> f = (n) -> Math.sqrt(n);
+		System.out.println(f.apply(16));
+		
+		Function<Integer, Double> f2 = Math::sqrt;
+		System.out.println(f2.apply(64));
+		
+		Bi<Integer, Integer> b2 = (a, b)->LambdaExpre.product(a,b);
+		
+		System.out.println(b2.apply(5, 4));
+		
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+package interfaceTeaching;
+
+@FunctionalInterface
+interface Printer {
+	void print(String name);
+}
+
+public class LambdaExpre {
+
+	public static void main(String[] args) {
+		Printer p = (name) -> System.out.println("Hello "+name);
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package interfaceTeaching;
+
+import java.util.function.Function;
+
+@FunctionalInterface
+interface Printer {
+	void print(String name);
+}
+
+public class LambdaExpre {
+
+	public static void main(String[] args) {
+		Printer p = (name) -> System.out.println("Hello "+name);
+		p.print("Adarsh");
+		
+		Function<Integer, Double> f = (n) -> Math.sqrt(n);
+		System.out.println(f.apply(16));
+		
+		Function<Integer, Double> f2 = Math::sqrt;
+		System.out.println(f2.apply(64));
+	}
+
+}

@@ -1,0 +1,25 @@
+package interfaceTeaching;
+@FunctionalInterface
+interface Draw {
+	void Circle();
+}
+
+class C1 implements Draw{
+
+	@Override
+	public void Circle() {
+		
+		System.out.println("hello");
+		
+	}
+	
+}
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		C1 c = new C1();
+		c.Circle();
+	}
+
+}

@@ -1,0 +1,123 @@
+package com.jdbcPreparedStatement;
+
+import java.sql.*;
+import java.util.Scanner;
+
+public class Jdbc {
+
+    public static void main(String[] args) {
+
+        String url = "jdbc:mysql://localhost:3306/jdbc";
+        String username = "root";
+        String password = "1234";
+
+        try (Connection con = DriverManager.getConnection(url, username, password);
+             Scanner sc = new Scanner(System.in)) {
+
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            while (true) {
+                System.out.println("\n1. Insert");
+                System.out.println("2. View");
+                System.out.println("3. Update");
+                System.out.println("4. Delete");
+                System.out.println("5. Alter Table (Add Column)");
+                System.out.println("6. Exit");
+                System.out.print("Choose option: ");
+                int choice = sc.nextInt();
+
+                switch (choice) {
+
+                    // INSERT
+                    case 1:
+                        System.out.print("Enter Id: ");
+                        int id = sc.nextInt();
+                        sc.nextLine();
+
+                        System.out.print("Enter Name: ");
+                        String name = sc.nextLine();
+
+                        System.out.print("Enter Age: ");
+                        int age = sc.nextInt();
+
+                        String insertQuery = "INSERT INTO STUDENTS (id, name, age) VALUES (?,?,?)";
+                        PreparedStatement psInsert = con.prepareStatement(insertQuery);
+                        psInsert.setInt(1, id);
+                        psInsert.setString(2, name);
+                        psInsert.setInt(3, age);
+
+                        int rows = psInsert.executeUpdate();
+                        System.out.println(rows + " row inserted successfully.");
+                        break;
+
+                    // SELECT
+                    case 2:
+                        String selectQuery = "SELECT * FROM STUDENTS";
+                        PreparedStatement psSelect = con.prepareStatement(selectQuery);
+                        ResultSet rs = psSelect.executeQuery();
+
+                        while (rs.next()) {
+                            System.out.println(
+                                    rs.getInt("id") + " " +
+                                    rs.getString("name") + " " +
+                                    rs.getInt("age"));
+                        }
+                        break;
+
+                    // UPDATE
+                    case 3:
+                        System.out.print("Enter Id to update: ");
+                        int updateId = sc.nextInt();
+                        sc.nextLine();
+
+                        System.out.print("Enter new Name: ");
+                        String newName = sc.nextLine();
+
+                        String updateQuery = "UPDATE STUDENTS SET name = ? WHERE id = ?";
+                        PreparedStatement psUpdate = con.prepareStatement(updateQuery);
+                        psUpdate.setString(1, newName);
+                        psUpdate.setInt(2, updateId);
+
+                        int updatedRows = psUpdate.executeUpdate();
+                        System.out.println(updatedRows + " row updated.");
+                        break;
+
+                    // DELETE
+                    case 4:
+                        System.out.print("Enter Id to delete: ");
+                        int deleteId = sc.nextInt();
+
+                        String deleteQuery = "DELETE FROM STUDENTS WHERE id = ?";
+                        PreparedStatement psDelete = con.prepareStatement(deleteQuery);
+                        psDelete.setInt(1, deleteId);
+
+                        int deletedRows = psDelete.executeUpdate();
+                        System.out.println(deletedRows + " row deleted.");
+                        break;
+
+                    // ALTER TABLE
+                    case 5:
+                    	System.out.print("Enter the column name to add: ");
+                    	String name1 = sc.nextLine();
+                    	
+                        String alterQuery = "ALTER TABLE STUDENTS ADD COLUMN ? VARCHAR(10)";
+                        PreparedStatement psAlter = con.prepareStatement(alterQuery);
+                        psAlter.setString(1, name1);
+                        psAlter.executeUpdate();
+                        System.out.println("Column added successfully.");
+                        break;
+
+                    case 6:
+                        System.out.println("Exiting...");
+                        return;
+
+                    default:
+                        System.out.println("Invalid choice.");
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

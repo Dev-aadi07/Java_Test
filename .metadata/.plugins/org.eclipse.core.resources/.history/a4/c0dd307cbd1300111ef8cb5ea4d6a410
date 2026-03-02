@@ -1,0 +1,33 @@
+package com.jdbc;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.Scanner;
+
+public class Jdbc {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String url = "jdbc:mysql://localhost:3306/jdbc";
+        String uname = "root";
+        String pass = "1234";
+        
+		try {
+			Connection con = DriverManager.getConnection(url, uname, pass);
+			System.out.println("Enter id: ");
+			int id = sc.nextInt();
+			String q = "SELECT * FROM students Where id = ?";
+			PreparedStatement ps = con.prepareStatement(q);
+			ps.setInt(1, id);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+}

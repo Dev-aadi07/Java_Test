@@ -1,0 +1,28 @@
+package dsa;
+
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class Priority {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		PriorityQueue<Integer> p = new PriorityQueue<>();
+		p.offer(-47);
+		p.offer(67);
+		p.offer(-7);
+		p.offer(9);
+		
+		System.out.println(p);
+		System.out.println(p.getClass());
+		
+		Deque<Integer> dq = new ArrayDeque<Integer>();
+		LinkedList<Integer> ll = new LinkedList<Integer>()
+		ll.add(3);
+		ll.add(null);
+		System.out.println(ll);		
+	}
+
+}

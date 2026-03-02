@@ -1,0 +1,47 @@
+package brainTeasing;
+
+import java.util.Scanner;
+
+class WrongPinException extends RuntimeException {
+	public WrongPinException(String msg) {
+		super(msg);
+	}
+}
+
+public class ATM {
+
+	public static void main(String[] args) {
+		String password = "1234";
+		Scanner sc = new Scanner(System.in);
+		
+		while (true) {
+			System.out.print("Pin: ");
+			String input = sc.nextLine();
+			try {
+				if (input.equals(password)) {
+					System.out.println("Successfully...");
+					break;
+				} else {
+					throw new WrongPinException("");
+				}
+			} catch (WrongPinException w) {
+				
+				System.out.println("Wrong pin!!  Try agin");
+				System.out.print("Pin: ");
+				String input1 = sc.nextLine();
+				try {
+					if (input1.equals(password)) {
+						System.out.println("Successfully...");
+						break;
+					} else {
+						throw new WrongPinException("");
+					}
+				} catch (WrongPinException w1) {
+					System.out.println("Try again after 5 minutes");
+					break;
+				}
+			}
+		}
+	}
+
+}

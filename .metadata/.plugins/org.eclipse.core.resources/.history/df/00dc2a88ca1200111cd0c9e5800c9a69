@@ -1,0 +1,28 @@
+package com.junit;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
+
+import com.Junit.JunitPractice;
+
+@TestInstance(Lifecycle.PER_CLASS)
+class JunitPracticeTest {
+	
+	JunitPractice jp = new JunitPractice();
+	
+	@Test
+	public void arrayTest() {
+		try {
+			int[] arr = null;
+			for (int num : arr) {
+				System.out.println(num);
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Exception Handled");
+		}
+	}
+
+}

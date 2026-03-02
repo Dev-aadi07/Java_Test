@@ -1,0 +1,14 @@
+package interfaceTeaching;
+@FunctionalInterface
+interface Draw {
+	void Circle();
+}
+
+public class Demo {
+
+	public static void main(String[] args) {
+		Draw d = ()->System.out.println("C1 draw");
+		d.Circle();
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.Junit2;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class Junit2Test {
+
+	@Test
+	void test() {
+		Junit2 j2 = new Junit2();
+		boolean actual = j2.isPalindrome("hello", "olleh");
+		boolean expected = true;
+		
+		assertEquals(expected, actual);
+		
+		boolean actual1 = j2.isOdd(4);
+		boolean expe = true;
+		
+		assertEquals(actual1, expe);
+	}
+
+}

@@ -1,0 +1,31 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi=
+"http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation=
+"http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+    <!-- Don't change this value -->
+    <persistence-unit name="GenericDBAdapter">
+        <properties>
+            <!--  Don't change this value  -->
+            <property name="hibernate.archive.autodetection" value="class, 
+		hbm" />
+            <!--The driver class name"/-->
+            <property name="hibernate.connection.driver_class" value="com.
+              mercury.jdbc.MercOracleDriver" />
+            <!--The connection url"/-->
+            <property name="hibernate.connection.url" value="jdbc:mercury:
+              oracle://artist:1521;sid=cmdb2" />
+            <!--DB login credentials"/-->
+            <property name="hibernate.connection.username" value="CMDB" />
+            <property name="hibernate.connection.password" value="CMDB" />
+            <!--connection pool properties"/-->
+            <property name="hibernate.c3p0.min_size" value="5" />
+            <property name="hibernate.c3p0.max_size" value="20" />
+            <property name="hibernate.c3p0.timeout" value="300" />
+            <property name="hibernate.c3p0.max_statements" value="50" />
+            <property name="hibernate.c3p0.idle_test_period" value="3000" />
+            <!--The dialect to use-->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.
+		OracleDialect" />
+        </properties>
+    </persistence-unit>
+</persistence>

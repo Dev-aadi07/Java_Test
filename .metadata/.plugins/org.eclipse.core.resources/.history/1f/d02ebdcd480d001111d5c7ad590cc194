@@ -1,0 +1,23 @@
+package interfaceTeaching;
+
+import java.util.function.Function;
+
+@FunctionalInterface
+interface Draw {
+	void Circle();
+}
+
+
+
+public class Demo {
+
+	public static void main(String[] args) {
+		
+		Draw d = ()->System.out.println("hello");
+		d.Circle();
+		
+		Function<String, Integer> f = (String s) -> s.length();
+		System.out.println(f.apply("Hellow World"));
+	}
+
+}

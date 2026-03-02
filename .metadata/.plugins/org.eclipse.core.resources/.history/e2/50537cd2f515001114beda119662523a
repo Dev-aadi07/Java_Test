@@ -1,0 +1,16 @@
+<persistence-unit name="myPU">
+	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+	<class>com.model.Employee</class>
+	
+	<properties>
+		<!-- DB Config -->
+		<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hello?">
+		<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hello?">
+		<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hello?">
+		<property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/hello?">
+		
+		
+		<!-- DB Config -->
+	
+	</properties>
+<persistence-unit>

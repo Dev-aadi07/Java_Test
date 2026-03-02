@@ -1,0 +1,34 @@
+package com.hibernatejpa.HibernateJPA;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	EntityManagerFactory emf = Persistence.createEntityManagerFactory("myPU");
+    	EntityManager em = emf.createEntityManager();
+    	EntityTransaction et = em.getTransaction();
+    	
+    	et.begin();
+    	//CRUD OPERATION
+//    	Create
+    	Employee emp1 = new Employee(1, "John", "john@gmail.com", "9876543210");
+    	em.persist(emp1);
+    	
+//    	Read
+    	Employee emp = em.find(Employee.class, 1);
+    	System.out.println(emp);
+    	
+    	em.merge("hello");
+    	
+    	et.commit();
+    }
+}
