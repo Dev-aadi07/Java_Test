@@ -1,0 +1,58 @@
+# Spring Core – Annotation Based Configuration
+
+This project demonstrates **Spring Core Dependency Injection using annotations**.
+
+## Overview
+
+Instead of defining beans in XML or configuration classes, annotations are used directly in the Java classes.
+
+Spring automatically scans and manages beans.
+
+Example relationship:
+
+Programmer → Laptop
+
+## Technologies Used
+
+* Java
+* Spring Core
+* Maven
+* Eclipse IDE
+
+## Project Structure
+
+```
+src/main/java
+ └── com.practice.annotation
+     ├── App.java
+     ├── AppConfig.java
+     ├── Laptop.java
+     └── Programmer.java
+```
+
+## How It Works
+
+1. Classes are marked with `@Component` to make them Spring beans.
+2. Dependencies are injected using `@Autowired`.
+3. Simple values are injected using `@Value`.
+4. `@ComponentScan` is used to automatically detect components.
+5. The application context is loaded using `AnnotationConfigApplicationContext`.
+
+## Example Output
+
+```
+Raman is coding
+Code Compiling...
+```
+
+## Key Concepts Demonstrated
+
+* Annotation based configuration
+* `@Component`
+* `@Autowired`
+* `@Value`
+* `@ComponentScan`
+
+## Learning Goal
+
+Understand how Spring performs **automatic dependency injection using annotations**.
