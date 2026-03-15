@@ -1,0 +1,59 @@
+# Spring Core – XML Based Configuration
+
+This project demonstrates **Dependency Injection in Spring Core using XML configuration**.
+
+## Overview
+
+In this project, beans are configured using an **XML file**.
+Spring's IoC container reads the configuration and manages object creation and dependency injection.
+
+The example models a simple relationship:
+
+Programmer → Laptop
+
+Where the `Programmer` class depends on the `Laptop` class.
+
+## Technologies Used
+
+* Java
+* Spring Core
+* Maven
+* Eclipse IDE
+
+## Project Structure
+
+```
+src/main/java
+ └── com.practice
+     ├── App.java
+     ├── Laptop.java
+     └── Programmer.java
+
+src/main/resources
+ └── beans.xml
+```
+
+## How It Works
+
+1. Beans are defined in `beans.xml`.
+2. Spring reads the XML configuration using `ClassPathXmlApplicationContext`.
+3. The `Laptop` bean is injected into the `Programmer` bean using **setter injection**.
+4. The main class retrieves the `Programmer` bean and executes the `code()` method.
+
+## Example Output
+
+```
+Coding using laptop
+Code Compiling...
+```
+
+## Key Concepts Demonstrated
+
+* Inversion of Control (IoC)
+* Dependency Injection
+* XML based bean configuration
+* Spring IoC Container
+
+## Learning Goal
+
+Understand how Spring manages object creation and dependencies using XML configuration.
